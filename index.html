@@ -1131,7 +1131,7 @@ data — stances will default to "unknown".
         <p class="results-constituency-label" id="result-constituency"></p>
         <div class="results-hero-heading" id="result-heading-1" style="color:#ffffff;"></div>
         <div class="results-hero-heading" id="result-heading-2" style="color:var(--accent-red);"></div>
-        <div class="results-hero-subheading" id="result-heading-3"></div>
+        <div class="results-hero-heading" id="result-heading-3"></div>
         <div id="result-actions"></div>
       </div>
       <!-- Right: MP photo -->
@@ -1543,6 +1543,7 @@ data — stances will default to "unknown".
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
       heading3.textContent = 'Get ' + firstName + ' to support it.';
+      heading3.style.color = '#ffffff';
     } else if (stance === 'opposes') {
       badge.classList.add('opposes');
       badge.textContent = 'Opposes restoration';
@@ -1551,6 +1552,7 @@ data — stances will default to "unknown".
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
       heading3.textContent = 'Get ' + firstName + ' to support it.';
+      heading3.style.color = '#ffffff';
     } else {
       badge.classList.add('unknown');
       badge.textContent = 'No public stance';
@@ -1559,6 +1561,7 @@ data — stances will default to "unknown".
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
       heading3.textContent = 'Get ' + firstName + ' to support it.';
+      heading3.style.color = '#ffffff';
     }
 
     // Write to MP button
