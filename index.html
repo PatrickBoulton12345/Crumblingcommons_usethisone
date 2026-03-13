@@ -1228,23 +1228,6 @@ data — stances will default to "unknown".
     return raw.trim().toUpperCase().replace(/\s+/g, '');
   }
 
-  function getPartyColour(party) {
-    var p = (party || '').toLowerCase();
-    if (p.includes('labour'))              return '#E4003B';
-    if (p.includes('conservative'))        return '#0087DC';
-    if (p.includes('liberal democrat'))     return '#FAA61A';
-    if (p.includes('scottish national'))   return '#FDF38E';
-    if (p.includes('green'))               return '#6AB023';
-    if (p.includes('reform'))              return '#12B6CF';
-    if (p.includes('plaid'))               return '#005B54';
-    if (p.includes('sinn'))                return '#326760';
-    if (p.includes('democratic unionist')) return '#D46A4C';
-    if (p.includes('alliance'))            return '#F6CB2F';
-    if (p.includes('sdlp'))               return '#2AA82C';
-    if (p.includes('independent'))         return '#DDDDDD';
-    return '#ffffff';
-  }
-
   function getStanceColour(stance) {
     if (stance === 'supports') return '#4CAF50';
     if (stance === 'opposes')  return '#e74c3c';
@@ -1552,8 +1535,7 @@ data — stances will default to "unknown".
     var titles = ['mr','mrs','ms','miss','sir','dame','dr','lord','lady','rt','hon','baroness'];
     var nameParts = mp_name ? mp_name.split(' ').filter(function(p) { return titles.indexOf(p.toLowerCase()) === -1; }) : [];
     var firstName = nameParts.length > 0 ? nameParts[0] : 'your MP';
-    var partyColour = getPartyColour(party);
-    var nameSpan = '<span style="color:' + partyColour + ';">' + escapeHTML(firstName) + '</span>';
+    var safeName = escapeHTML(firstName);
     if (stance === 'supports') {
       badge.classList.add('supports');
       badge.textContent = 'Supports restoration';
@@ -1561,7 +1543,7 @@ data — stances will default to "unknown".
       heading1.style.color = '#ffffff';
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
-      heading3.innerHTML = 'Get ' + nameSpan + ' to support it.';
+      heading3.textContent = 'Get ' + firstName + ' to support it.';
       heading3.style.color = '#ffffff';
     } else if (stance === 'opposes') {
       badge.classList.add('opposes');
@@ -1570,7 +1552,7 @@ data — stances will default to "unknown".
       heading1.style.color = '#ffffff';
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
-      heading3.innerHTML = 'Get ' + nameSpan + ' to support it.';
+      heading3.textContent = 'Get ' + firstName + ' to support it.';
       heading3.style.color = '#ffffff';
     } else {
       badge.classList.add('unknown');
@@ -1579,7 +1561,7 @@ data — stances will default to "unknown".
       heading1.style.color = '#ffffff';
       heading2.textContent = 'The RAPID bill will put the bloat in the bin.';
       heading2.style.color = 'var(--accent-red)';
-      heading3.innerHTML = 'Get ' + nameSpan + ' to support it.';
+      heading3.textContent = 'Get ' + firstName + ' to support it.';
       heading3.style.color = '#ffffff';
     }
 
