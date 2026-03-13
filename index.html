@@ -1532,28 +1532,31 @@ data — stances will default to "unknown".
     badge.className = 'stance-badge';
 
     // Hero text — dynamic per stance
+    var firstName = mp_name ? mp_name.split(' ').pop() : 'your MP';
     if (stance === 'supports') {
       badge.classList.add('supports');
       badge.textContent = 'Supports restoration';
-      heading1.textContent = 'Your MP supports a delayed and expensive restoration.';
+      heading1.textContent = 'Your MP wants to spend your money on a bloated project.';
       heading1.style.color = '#ffffff';
-      heading2.textContent = '';
+      heading2.textContent = 'The RAPID bill will put the bloat in the bin. Get ' + firstName + ' to support it.';
+      heading2.style.color = 'var(--accent-red)';
       heading3.textContent = '';
     } else if (stance === 'opposes') {
       badge.classList.add('opposes');
       badge.textContent = 'Opposes restoration';
-      heading1.textContent = 'Your MP supports spending taxpayer\u2019s cash on a bloated project.';
-      heading1.style.color = 'var(--accent-red)';
-      heading2.innerHTML = 'We have the answer.<br>Our bill will streamline the process, and save billions.';
-      heading2.style.color = '#ffffff';
+      heading1.textContent = 'Your MP wants to spend your money on a bloated project.';
+      heading1.style.color = '#ffffff';
+      heading2.textContent = 'The RAPID bill will put the bloat in the bin. Get ' + firstName + ' to support it.';
+      heading2.style.color = 'var(--accent-red)';
       heading3.textContent = '';
     } else {
       badge.classList.add('unknown');
       badge.textContent = 'No public stance';
-      heading1.textContent = 'Your MP is silent on the crumbling Palace of Westminster.';
+      heading1.textContent = 'Your MP wants to spend your money on a bloated project.';
       heading1.style.color = '#ffffff';
-      heading2.textContent = 'Silence is complicity. The \u00A339bn bill keeps growing while MPs say nothing.';
-      heading3.textContent = 'Make them listen.';
+      heading2.textContent = 'The RAPID bill will put the bloat in the bin. Get ' + firstName + ' to support it.';
+      heading2.style.color = 'var(--accent-red)';
+      heading3.textContent = '';
     }
 
     // Write to MP button
